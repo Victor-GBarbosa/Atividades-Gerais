@@ -6,6 +6,7 @@ public class App {
         Scanner scan = new Scanner(System.in);
 
         products a = new products();
+        
 
         a.getInfo();
         a.show();
