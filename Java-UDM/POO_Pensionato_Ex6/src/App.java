@@ -7,10 +7,9 @@ public class App {
         int opt = 0;
         int rentHistory = 0;
         Room[] aptos = new Room[10];
-        Room[] aptosCopy = new Room[10];
+        
         for (int i = 0; i < aptos.length; i++) {
             aptos[i] = new Room("Não lugado", "Sem contato disponivel", i + 1);
-            aptosCopy[i] = new Room("Não lugado", "Sem contato disponivel", i + 1);
         }
         
                 do {
@@ -34,7 +33,7 @@ public class App {
                     aptos[aptToRent].rent(rentHistory);
                     rentHistory++;
                     
-                    aptos[rentHistory] = aptosCopy[rentHistory];
+                    
                     
 
                     break;
@@ -45,7 +44,7 @@ public class App {
                     for (int i = 0; i < aptos.length; i++) {
                         if (aptos[i].isRented()) {
                         System.out.println("\nRent#" + (aptos[i].getRentHistory() + 1) + "\n");
-                        aptosCopy[i].show();
+                        aptos[i].show();
                         }
                     }
                     break;
