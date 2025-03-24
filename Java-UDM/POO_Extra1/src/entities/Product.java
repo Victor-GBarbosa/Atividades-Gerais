@@ -17,11 +17,33 @@ public class Product {
         this.price = scan.nextDouble();
         scan.nextLine();
         System.out.println("Voce deseja adicionar esse produto ao estoque? (y/n)");
-        if (scan.nextLine() == "y") {
-            System.out.println("Quantas unidades deseja adicionar?");
-            this.quantity = scan.nextInt(); scan.nextLine();
-        }
+        System.out.println("Quantas unidades deseja adicionar?");
+        this.quantity = scan.nextInt(); scan.nextLine();
+        
         this.occupied = true;
+    }
+
+    public void productRemove() {
+        this.name = null;
+        this.quantity = 0;
+        this.price = 0.0;
+        this.occupied = false;
+
+    }
+
+    public void getProduct() {
+        System.out.println("\n");
+
+        System.out.printf("Nome: %s\n", this.name);
+
+        System.out.printf("Valor: %.2f\n",this.price);
+
+        System.out.printf("Quantidade: %d\n", this.quantity);
+
+       
+
+
+
     }
 
     public double getValue() {

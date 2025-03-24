@@ -3,6 +3,7 @@ import java.util.Scanner;
 import entities.Product;
 
 public class App {
+
     public static void main(String[] args) throws Exception {
 
         Scanner scan = new Scanner(System.in);
@@ -10,6 +11,7 @@ public class App {
         System.out.println("Quantos produtos deseja adicionar ao estoque?");
         int j = scan.nextInt();
             scan.nextLine();
+            int count;
 
         Product[] product = new Product[j];
         for (int i = 0; i < product.length; i++) {
@@ -19,21 +21,48 @@ public class App {
         int opt;
 
         do {
-            System.out.printf("\n\nBem-Vindo ao estoque, o que deseja fazer\n\n1-Adicionar um produto\n2-Remover 1 produto\n3-Sair");
+            count = 0;
+            for (int i = 0; i < product.length; i++) {
+                if (!product[i].isOccupied()) {
+                    count++;
+                }
+            }
+            System.out.printf("\n\nBem-Vindo ao estoque, o que deseja fazer\n\nEspaços disponiveis: %d\n\n1-Adicionar um produto\n2-Ver produtos cadastrados\n3-Remover produto\n4-Sair\n\n", count);
             opt = scan.nextInt();
                 scan.nextLine();
                 switch (opt) {
                     case 1:
+                        count = 0;
+                        for (int i = 0; i < product.length; i++) {
+                            if (!product[i].isOccupied()) {
+                                count++;
+                            }
+                        }
+
                       for (int i = 0; i < product.length; i++) {
                         if (!product[i].isOccupied()) {
-                            product[i].setInfo(); // Parei antes de testar se atribuição dos atributos esta funcionando corretamente
-                                                  // Fazer a opção de visualizar os produtos, alterar os preços, e remover os produtos
-                        }
+                            System.out.printf("Espaços Disponiveis: %d\n\n", count);
+                            product[i].setInfo();
+                            break;      
+                        }                       
                       }  
                         break;
                     case 2:
+                      for (int i = 0; i < product.length; i++) {
+                        if (product[i].isOccupied()) {
+                            product[i].getProduct();
+                        }
+                      }
                         break;
                     case 3:
+                        int tempCounter = 1;
+                        System.out.println("Qual produto deseja remover?");
+                        for (int i = 0; i < product.length; i++) {
+                            if (product[i].isOccupied()) {
+                                System.out.printf("\n#Produto %d\n", tempCounter);
+                                product[i].getProduct();
+                            }
+                      }
                         break;
                     case 4: 
                         break;
@@ -41,7 +70,7 @@ public class App {
                     default:
                         break;
                 }
-        } while (opt != 3);
+        } while (opt != 4);
         
 
 
