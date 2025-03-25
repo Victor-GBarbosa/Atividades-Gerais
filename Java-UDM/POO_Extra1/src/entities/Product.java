@@ -16,7 +16,6 @@ public class Product {
         System.out.println("Qual sera o preço do produto?");
         this.price = scan.nextDouble();
         scan.nextLine();
-        System.out.println("Voce deseja adicionar esse produto ao estoque? (y/n)");
         System.out.println("Quantas unidades deseja adicionar?");
         this.quantity = scan.nextInt(); scan.nextLine();
         

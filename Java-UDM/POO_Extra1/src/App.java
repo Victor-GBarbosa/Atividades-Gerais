@@ -59,10 +59,13 @@ public class App {
                         System.out.println("Qual produto deseja remover?");
                         for (int i = 0; i < product.length; i++) {
                             if (product[i].isOccupied()) {
-                                System.out.printf("\n#Produto %d\n", tempCounter);
+                                System.out.printf("\n#Produto %d\n\n", tempCounter);
                                 product[i].getProduct();
+                                tempCounter++;
                             }
                       }
+                      System.out.println("Qual produto deseja remover?");
+                        product[scan.nextInt() - 1].productRemove();
                         break;
                     case 4: 
                         break;
@@ -78,3 +81,5 @@ public class App {
 
     }
 }
+
+
