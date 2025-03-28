@@ -23,6 +23,12 @@ public class Client {
         System.out.println("Email: " + this.email);
         System.out.println("Data de nascimento: " + this.birthDate);
     }
+
+    public Client(String name, String email, String birthDate) {
+        this.name = name;
+        this.email = email;
+        this.birthDate = birthDate;
+    }
        
     }
 
