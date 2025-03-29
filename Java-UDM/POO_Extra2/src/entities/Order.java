@@ -5,13 +5,21 @@ import java.util.List;
 
 public class Order {
 
-    private List<Item> orderItems = new ArrayList<>();
+    private List<OrderItem> orderItems = new ArrayList<>();
     private double orderSubtotal;
-    
-    
-    public List<Item> getOrderItems() {
-        return orderItems;
+
+    public void addOrderItem(OrderItem orderItem) {
+        this.orderItems.add(orderItem);
     }
+
+    public Order() {
+
+    }
+
+    public Order(OrderItem orderItem) {
+        orderItems.add(orderItem);
+    }
+
     public double getOrderSubtotal() {
         return orderSubtotal;
     }  

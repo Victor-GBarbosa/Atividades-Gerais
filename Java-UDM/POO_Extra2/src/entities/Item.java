@@ -4,12 +4,25 @@ public class Item {
     private String name;
     private double price;
 
-    public void setName(String name) {
-        this.name = name;
+    
+
+     public String getName() {
+        return name;
     }
-    public void setPrice(double price) {
+
+    public double getPrice() {
+        return price;
+    }
+
+     public Item() {
+        // Construtor padrão
+     }
+
+    public Item(String name, double price) {
+        this.name = name;
         this.price = price;
     }
 }
+
 
 
