@@ -13,6 +13,8 @@ public class App {
 
         List<Item> items = new ArrayList<>();
         List<Order> orders = new ArrayList<>();
+
+        
         do {
             System.out.println("Bem vindo ao Sistema de Pedidos!");
             System.out.println("\n1-Fazer pedido\n2-Consultar pedidos\n3-Adicionar um item\n4-Ver itens\n5-Remover item\n6-Sair");
