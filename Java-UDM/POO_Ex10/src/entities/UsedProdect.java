@@ -20,4 +20,7 @@ public class UsedProdect extends Product {
     public void setManufectureDate(String manufectureDate) {
         this.manufectureDate = manufectureDate;
     }
+
+    
+
 }
