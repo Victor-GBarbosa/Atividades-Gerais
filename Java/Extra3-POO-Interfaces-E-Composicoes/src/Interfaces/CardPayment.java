@@ -1,10 +1,10 @@
 package Interfaces;
 
-public class CardPayment implements Payment {
+public class CardPayment implements PaymentMethod {
 
     @Override
-    public double payMethod() {
-        return 
+    public double payService() {
+        return 0;
     }
 
 }
