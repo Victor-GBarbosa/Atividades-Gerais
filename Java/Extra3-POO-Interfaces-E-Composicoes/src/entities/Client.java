@@ -9,6 +9,10 @@ public class Client {
 
     List<Order> orderList = new ArrayList<>();
 
+    public void addNewOrder(Order order) {
+        this.orderList.add(order);
+    }
+
     public String getName() {
         return name;
     }
@@ -19,5 +23,9 @@ public class Client {
 
     public Client(String name) {
         this.name = name;
+    }
+
+    public List<Order> getOrderList() {
+        return orderList;
     }
 }
