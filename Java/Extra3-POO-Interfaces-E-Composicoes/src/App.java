@@ -2,6 +2,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import Interfaces.BankSlipPayment;
+import Interfaces.CardPayment;
+import Interfaces.PaymentMethod;
+import Interfaces.PixPayment;
 import entities.Client;
 import entities.Order;
 import entities.OrderProduct;
@@ -14,6 +18,10 @@ public class App {
         List<Product> products = new ArrayList<>();
         List<OrderProduct> orderProductList = new ArrayList<>();
         List<Order> orders = new ArrayList<>();
+
+        PaymentMethod bankSliPayment = new BankSlipPayment();
+        PaymentMethod cardPaymentMethod = new CardPayment();
+        PaymentMethod pixPaymentMethod = new PixPayment();
 
         Product p1 = new Product("Vassora", 26.99);
         products.add(p1);
@@ -53,8 +61,8 @@ public class App {
                     break;
                 case 2:
                 System.out.println();
-                for (Product catapinbas : products) {
-                        System.out.println(catapinbas);
+                for (Product pcdt : products) {
+                        System.out.println(pcdt);
                     }
                     break;
                 case 3:
@@ -86,7 +94,30 @@ public class App {
                         orders.get(0).addOrderProduct(orderProductList.get(i));
                     }
 
+                   // Colocar um switch para as formas de pagamento 
+
+                System.out.println("Escolha a forma de pagamento:");
+                System.out.println("1- Boleto\n2- Cartão\n3- Pix");
+                int paymentOption = scan.nextInt(); scan.nextLine();
+
+                switch (paymentOption) {
+                    case 1:
+                        bankSliPayment.payService(orders.get(0));
+                        break;
+                    case 2:
+                        cardPaymentMethod.payService(orders.get(0));
+                        break;
+                    case 3:
+                        pixPaymentMethod.payService(orders.get(0));
+                        break;
+                    default:
+                        System.out.println("Opção inválida!");
+                        break;
+                }
+
                     client.addNewOrder(orders.get(0));
+
+                    
 
                     orderProductList.clear();
                     orders.clear();

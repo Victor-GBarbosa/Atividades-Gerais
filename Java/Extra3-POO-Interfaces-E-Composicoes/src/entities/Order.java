@@ -3,30 +3,31 @@ package entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import Interfaces.PaymentMethod;
-
 public class Order {
-    protected double totalValue;
+    protected double chargedAmount;
+    protected double subTotal = 0.00;
     protected int id;
 
     Client client;
-    List<OrderProduct> products = new ArrayList<>();
+    List<OrderProduct> orderProducts = new ArrayList<>();
 
 
     public Order(int id, Client client) {
         this.id = id;
         this.client = client;
     }
-    public double getTotalValue() {
-        double tValue = 0;
-        for (OrderProduct product : products) {
-            tValue += product.getTotalValue();
+    public double getSubtotal() {
+        for (int i = 0; i < orderProducts.size(); i++) {
+            this.subTotal += orderProducts.get(i).getTotalValue();
         }
-        return tValue;
+        return subTotal;
     }
 
+    public void setChargedAmount(double chargedAmount) {
+        this.chargedAmount = chargedAmount;
+    }
     public void addOrderProduct(OrderProduct orderProduct) {
-        this.products.add(orderProduct);
+        this.orderProducts.add(orderProduct);
 
     }
 

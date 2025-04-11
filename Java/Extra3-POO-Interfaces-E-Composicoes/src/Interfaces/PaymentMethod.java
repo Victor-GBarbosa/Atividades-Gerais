@@ -1,6 +1,8 @@
 package Interfaces;
 
+import entities.Order;
+
 public interface PaymentMethod {
 
-    double payService();
+    public void payService(Order order);
 }

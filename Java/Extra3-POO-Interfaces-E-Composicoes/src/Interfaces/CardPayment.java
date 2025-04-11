@@ -1,10 +1,13 @@
 package Interfaces;
 
+import entities.Order;
+
 public class CardPayment implements PaymentMethod {
 
     @Override
-    public double payService() {
-        return 0;
+    public void payService(Order order) {
+        order.setChargedAmount(order.getSubtotal() + (order.getSubtotal() * 0.15));
     }
 
+    
 }

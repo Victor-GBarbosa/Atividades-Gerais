@@ -10,7 +10,13 @@ public class OrderProduct {
         this.quantity = quantity;
         this.product = product;
     }
+
+   public void setTotalValue() {
+    this.totalValue = product.price * quantity;
+}
+
     public double getTotalValue() {
+        setTotalValue();
         return totalValue;
     }
     public int getQuantity() {
