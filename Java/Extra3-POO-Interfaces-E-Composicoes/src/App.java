@@ -32,10 +32,10 @@ public class App {
 
         System.out.println("Bem vindo a loja\n"); //Mensagem inicial
 
-        // System.out.println("Digite o nome do Cliente"); //Criação do cliente
-        // String name = scan.nextLine();
-        // Client client = new Client(name);
-        Client client = new Client("Ticole");
+        System.out.println("Digite o nome do Cliente"); //Criação do cliente
+        String name = scan.nextLine();
+        Client client = new Client(name);
+        // Client client = new Client("");
 
         int opt; //Variavel de opções
 
@@ -43,7 +43,7 @@ public class App {
 
         do {
             System.out.println("Escolha uma opção\n");
-            System.out.println("1- Adicionar um novo produto\n2-Ver produtos\n3-Comprar produtos");
+            System.out.println("1- Adicionar um novo produto\n2-Ver produtos\n3-Comprar produtos\n4-Ver ultimas compras");
             opt = scan.nextInt(); scan.nextLine();
 
             switch (opt) {
@@ -64,6 +64,7 @@ public class App {
                 for (Product pcdt : products) {
                         System.out.println(pcdt);
                     }
+                    System.out.println();
                     break;
                 case 3:
                     int confirm;
@@ -89,7 +90,7 @@ public class App {
                     confirm = scan.nextInt();
 
                     } while (confirm != 2);
-                    orders.add(new Order( (int)(Math.random() *1000), client));
+                    orders.add(new Order( (int)(Math.random() *1000)));
                     for (int i = 0; i < orderProductList.size(); i++) {
                         orders.get(0).addOrderProduct(orderProductList.get(i));
                     }
@@ -99,32 +100,43 @@ public class App {
                 System.out.println("Escolha a forma de pagamento:");
                 System.out.println("1- Boleto\n2- Cartão\n3- Pix");
                 int paymentOption = scan.nextInt(); scan.nextLine();
-
+                boolean paymentOptionValidation;
+                do {
                 switch (paymentOption) {
                     case 1:
                         bankSliPayment.payService(orders.get(0));
+                        paymentOptionValidation = true;
                         break;
                     case 2:
                         cardPaymentMethod.payService(orders.get(0));
+                        paymentOptionValidation = true;
                         break;
                     case 3:
                         pixPaymentMethod.payService(orders.get(0));
+                        paymentOptionValidation = true;
                         break;
                     default:
                         System.out.println("Opção inválida!");
+                        paymentOptionValidation = false;
                         break;
-                }
-
+                } 
+    
+                } while (!paymentOptionValidation);
                     client.addNewOrder(orders.get(0));
-
-                    
-
                     orderProductList.clear();
                     orders.clear();
 
                     break;
 
                 case 4:
+
+                System.out.println("Ultimas compras de " + client);
+                System.out.println("Quantidade de compras: " + client.getOrderList().size());
+
+                for (int i = 0; i < client.getOrderList().size(); i++) {
+                    System.out.println("Compra #" + (i + 1));
+                    client.getOrderList().get(i).showOrders();
+                }
                     break;
 
                 case 5:

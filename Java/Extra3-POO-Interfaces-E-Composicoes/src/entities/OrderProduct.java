@@ -23,6 +23,9 @@ public class OrderProduct {
         return quantity;
     }
 
-
+    public void showOrderProducts() {
+        System.out.println(quantity + "x " + product);
+        // System.out.printf("%dx %s R$%.2f", quantity, product.name, product.price);
+    }
     
 }

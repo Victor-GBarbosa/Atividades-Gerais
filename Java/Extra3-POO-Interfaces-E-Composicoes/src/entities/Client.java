@@ -28,4 +28,9 @@ public class Client {
     public List<Order> getOrderList() {
         return orderList;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

@@ -8,21 +8,23 @@ public class Order {
     protected double subTotal = 0.00;
     protected int id;
 
-    Client client;
+
     List<OrderProduct> orderProducts = new ArrayList<>();
 
 
-    public Order(int id, Client client) {
+    public Order(int id) {
         this.id = id;
-        this.client = client;
     }
-    public double getSubtotal() {
+    public double setSubtotal() {
         for (int i = 0; i < orderProducts.size(); i++) {
             this.subTotal += orderProducts.get(i).getTotalValue();
         }
         return subTotal;
     }
 
+    public double getSubTotal() {
+        return subTotal;
+    }
     public void setChargedAmount(double chargedAmount) {
         this.chargedAmount = chargedAmount;
     }
@@ -34,7 +36,14 @@ public class Order {
     public int getId() {
         return id;
     }
-    public Client getClient() {
-        return client;
+
+    public void showOrders() {
+        for (OrderProduct orderProduct : orderProducts) {
+            orderProduct.showOrderProducts();
+        }
+        System.out.println();
+        System.out.println("Subtotal: R$" + String.format("%.2f", subTotal));
+        System.out.println("Total: R$" + String.format("%.2f", chargedAmount));
+        System.out.println();
     }
 }

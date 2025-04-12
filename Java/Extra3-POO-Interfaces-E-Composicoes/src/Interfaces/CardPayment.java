@@ -6,7 +6,8 @@ public class CardPayment implements PaymentMethod {
 
     @Override
     public void payService(Order order) {
-        order.setChargedAmount(order.getSubtotal() + (order.getSubtotal() * 0.15));
+        order.setSubtotal();
+        order.setChargedAmount(order.getSubTotal() + (order.getSubTotal() * 0.15));
     }
 
     
