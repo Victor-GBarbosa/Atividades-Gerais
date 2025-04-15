@@ -7,9 +7,9 @@ public class Order {
     protected double chargedAmount;
     protected double subTotal = 0.00;
     protected int id;
-
-
     List<OrderProduct> orderProducts = new ArrayList<>();
+
+
 
 
     public Order(int id) {
