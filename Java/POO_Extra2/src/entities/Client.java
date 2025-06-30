@@ -2,7 +2,7 @@ package entities;
 
 import entities.enums.UserType;
 
-public class Client {
+public class Client extends Order {
     private String name;
     private String email;
     private UserType userType;

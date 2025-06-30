@@ -3,7 +3,7 @@ package entities;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Order {
+public class Order extends OrderItem {
 
     private List<OrderItem> orderItems = new ArrayList<>();
     private double orderSubtotal;

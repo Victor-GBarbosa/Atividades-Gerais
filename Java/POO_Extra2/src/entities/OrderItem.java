@@ -1,6 +1,6 @@
 package entities;
 
-public class OrderItem {
+public class OrderItem extends Item {
     private Item item;
     private int quantity;
     
