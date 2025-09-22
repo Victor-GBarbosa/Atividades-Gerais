@@ -1,0 +1,35 @@
+.container {
+  font-family: sans-serif;
+  background-color: #f6f6f2;
+  height: 700px;
+  width: 400px;
+  margin: 5em auto;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.container img {
+  padding-top: 25px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+  aspect-ratio: 1; /* Força proporção 1:1 */
+  min-width: 100px;
+  min-height: 100px;
+}
+
+.container h2 {
+  font-size: 1.5em;
+}
+
+.container p,
+h2 {
+  border-bottom: 3px solid #418dd0;
+  text-align: center;
+  padding: 1em;
+  margin: 0;
+}
